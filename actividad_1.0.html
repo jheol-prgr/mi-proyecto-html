@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('bosque.jpg'); /* Cambia esto si la imagen tiene otro nombre */
+            background-size: cover; /* Cubre toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            color: white; /* Color del texto para que contraste con el fondo */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .menu {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con algo de transparencia */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+        .menu h2 {
+            color: black; /* Cambiado a negro */
+        }
+        .menu a {
+            display: block;
+            margin: 15px 0;
+            color: blue; /* Color de los enlaces en negro */
+            text-decoration: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            display: none;
+            margin-top: 20px;
+        }
+        iframe, img, audio {
+            margin: 10px 0;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .album-cover {
+            width: 300px; /* Ajusta el tamaño de la imagen */
+            height: auto;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        function showContent(id) {
+            // Oculta el menú
+            document.querySelector('.menu').style.display = 'none';
+            // Muestra el contenido seleccionado
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function showMenu() {
+            // Muestra el menú
+            document.querySelector('.menu').style.display = 'block';
+            // Oculta todo el contenido
+            document.querySelectorAll('.content').forEach(content => content.style.display = 'none');
+        }
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <h2>Jose Jhoel Villavicencio Aguirre</h2>
+        <h2> Fecha: 10/10/2024 </h2>
+        <h2>"Menú de Opciones"</h2>
+        <a onclick="showContent('videoContent')">Ver Video</a>
+        <a onclick="showContent('audioContent')">Escuchar Audio</a>
+        <a onclick="showContent('gifContent')">Ver GIF</a>
+    </div>
+
+    <!-- Sección de Video -->
+    <div id="videoContent" class="content">
+        <h3>Video</h3> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ptc4Awb0UpU?si=bbbhpy_ZI_9TFc9H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <button class="back-button" onclick="showMenu()">Volver al Menú</button>
+    </div>
+
+    <!-- Sección de Audio -->
+    <div id="audioContent" class="content">
+        <h3>Audio</h3>  
+        <!-- Imagen del álbum -->
+        <img src="music.jpeg" alt="Portada del Álbum" class="album-cover"> <!-- Usa el nombre del archivo de imagen -->
+        <audio controls>
+            <source src="musica.m4a" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <button class="back-button" onclick="showMenu()">Volver al Menú</button>
+    </div>
+
+    <!-- Sección de GIF -->
+    <div id="gifContent" class="content">
+        <h3>GIF</h3> 
+        <img src="baile.gif" width="560" height="315">
+        <button class="back-button" onclick="showMenu()">Volver al Menú</button>
+    </div>
+</body>/
+</html>
+
